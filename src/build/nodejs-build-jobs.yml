@@ -2,10 +2,6 @@ jobs:
   - job: BuildJob
     displayName: NodeJS Build
     steps:
-    
-    - script: | 
-        cd '$(Build.SourcesDirectory)/examples/nodejs'
-        tree
 
     - task: NodeTool@0
       inputs:
@@ -13,17 +9,17 @@ jobs:
       displayName: 'Install Node.js'
 
     - script: |
-        npm install
-        npm run build
+        npm install '$(Build.SourcesDirectory)/examples/nodejs'
+        npm run build '$(Build.SourcesDirectory)/examples/nodejs'
       displayName: 'npm install and build'
 
     - script: |
-        npm pack
+        npm pack '$(Build.SourcesDirectory)/examples/nodejs'
       displayName: 'Package for npm release'
 
     - task: CopyFiles@2
       inputs:
-        sourceFolder: '$(Build.SourcesDirectory)'
+        sourceFolder: '$(Build.SourcesDirectory)/example/nodejs'
         contents: '*.tgz' 
         targetFolder: $(Build.ArtifactStagingDirectory)/npm
       displayName: 'Copy npm package'
