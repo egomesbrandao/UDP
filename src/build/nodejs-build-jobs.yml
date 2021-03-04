@@ -9,12 +9,14 @@ jobs:
       displayName: 'Install Node.js'
 
     - script: |
-        npm install '$(Build.SourcesDirectory)/examples/nodejs'
-        npm run build '$(Build.SourcesDirectory)/examples/nodejs'
+        cd '$(Build.SourcesDirectory)/examples/nodejs'
+        tree
+        npm install
+        npm run build
       displayName: 'npm install and build'
 
     - script: |
-        npm pack '$(Build.SourcesDirectory)/examples/nodejs'
+        npm pack
       displayName: 'Package for npm release'
 
     - task: CopyFiles@2
