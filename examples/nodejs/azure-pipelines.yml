@@ -10,7 +10,7 @@ trigger:
 - move-examples-here
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 extends: 
   template:  ..\..\src\orchestrator.yml
