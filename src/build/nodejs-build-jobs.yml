@@ -1,5 +1,5 @@
 jobs:
-  - job: nodejsbuild
+  - job: BuildJob
     displayName: NodeJS Build
     steps:
     - task: NodeTool@0
