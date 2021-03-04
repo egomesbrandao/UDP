@@ -14,17 +14,17 @@ jobs:
         npm run build
         npm pack
       displayName: 'npm install and build'
-      
+
     - task: CopyFiles@2
       inputs:
-        sourceFolder: '$(Build.SourcesDirectory)'
+        sourceFolder: '$(Build.SourcesDirectory)/examples/nodejs'
         contents: '*.tgz' 
         targetFolder: $(Build.ArtifactStagingDirectory)/npm
       displayName: 'Copy npm package'
 
     - task: CopyFiles@2
       inputs:
-        sourceFolder: '$(Build.SourcesDirectory)'
+        sourceFolder: '$(Build.SourcesDirectory)/examples/nodejs'
         contents: 'package.json' 
         targetFolder: $(Build.ArtifactStagingDirectory)/npm
       displayName: 'Copy package.json'
