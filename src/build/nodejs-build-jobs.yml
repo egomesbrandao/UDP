@@ -12,12 +12,9 @@ jobs:
         cd $(Build.SourcesDirectory)/examples/nodejs
         npm install
         npm run build
-      displayName: 'npm install and build'
-
-    - script: |
         npm pack
-      displayName: 'Package for npm release'
-
+      displayName: 'npm install and build'
+      
     - task: CopyFiles@2
       inputs:
         sourceFolder: '$(Build.SourcesDirectory)'
