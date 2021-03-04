@@ -1,13 +1,16 @@
 jobs:
-  - job: nodejsbuild
+  - job: BuildJob
     displayName: NodeJS Build
     steps:
+
     - task: NodeTool@0
       inputs:
         versionSpec: '12.x'
       displayName: 'Install Node.js'
 
     - script: |
+        cd '$(Build.SourcesDirectory)/examples/nodejs'
+        tree
         npm install
         npm run build
       displayName: 'npm install and build'
