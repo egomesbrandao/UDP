@@ -10,14 +10,10 @@ jobs:
 
     - script: |
         cd '$(Build.SourcesDirectory)/examples/nodejs'
-        tree
         npm install
-        npm run build
-      displayName: 'npm install and build'
-
-    - script: |
+        npm test
         npm pack
-      displayName: 'Package for npm release'
+      displayName: 'npm install,test and pack'
 
     - task: CopyFiles@2
       inputs:
