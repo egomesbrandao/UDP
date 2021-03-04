@@ -3,7 +3,9 @@ jobs:
     displayName: NodeJS Build
     steps:
     
-    - script: cd '$(Build.SourcesDirectory)/examples/nodejs'
+    - script: | 
+        cd '$(Build.SourcesDirectory)/examples/nodejs'
+        tree
 
     - task: NodeTool@0
       inputs:
