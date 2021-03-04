@@ -1,0 +1,20 @@
+# resources:
+#   repositories:
+#   - repository: UDP
+#     type: github
+#     endpoint: devopsnights
+#     name: devopsnights/UDP
+
+trigger:
+- main
+- move-examples-here
+
+pool:
+  vmImage: ubuntu-latest
+
+extends: 
+  template:  ..\..\src\orchestrator.yml
+  parameters:
+    resourceType: nodejs
+    webAppName: wa-udp-nodejs
+    serviceConnection: ServiceConnection
